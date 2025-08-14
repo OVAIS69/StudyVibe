@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StudyVibe — PDF Text Extractor</title>
+  <title>StudyVibe — PDF Text Search + AI</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
     <h1>📚 StudyVibe</h1>
-    <p class="tagline">Read & Extract Text from PDFs</p>
+    <p class="tagline">Read, Search & Chat with Your PDFs</p>
 
     <label class="upload-btn">
       <input type="file" id="pdfUpload" accept="application/pdf" />
@@ -20,6 +20,11 @@
     <div id="output" class="output-box">No PDF loaded yet.</div>
 
     <iframe id="pdfViewer" class="pdf-viewer hidden"></iframe>
+
+    <div class="search-box hidden">
+      <input type="text" id="searchInput" placeholder="🔍 Search in text..." />
+      <button id="askAI">💡 Ask AI</button>
+    </div>
 
     <h2 class="section-title">📄 Extracted Text</h2>
     <pre id="pdfText" class="text-output">No text extracted yet.</pre>
