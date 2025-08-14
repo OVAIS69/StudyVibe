@@ -130,4 +130,13 @@ mark {
   background-color: yellow;
   color: black;
 }
+.ai-response {
+  background: rgba(0, 255, 204, 0.1);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-style: italic;
+  border-left: 3px solid #00ffcc;
+}
+
 
