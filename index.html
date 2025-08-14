@@ -3,29 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StudyVibe — PDF Study Tool</title>
+  <title>StudyVibe — PDF Reader</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <div class="app">
     <h1>📚 StudyVibe</h1>
-    <p>Upload, view, and study your PDFs — all in your browser.</p>
-  </header>
+    <p class="tagline">Read & Study PDFs Instantly</p>
 
-  <main>
-    <div class="upload-box">
+    <label class="upload-btn">
       <input type="file" id="pdfUpload" accept="application/pdf" />
-      <label for="pdfUpload" class="upload-btn">Choose PDF</label>
-    </div>
+      Select PDF
+    </label>
 
-    <div id="pdfViewer" class="viewer"></div>
-  </main>
+    <div id="loader" class="loader hidden"></div>
+    <div id="output" class="output-box">No PDF loaded yet.</div>
+  </div>
 
-  <footer>
-    <p>Made with ❤️ for learners — Phase 0</p>
-  </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
