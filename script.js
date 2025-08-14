@@ -1,3 +1,38 @@
+const GEMINI_API_KEY = "AIzaSyDoo_0AOtdDM2IV4EREyHTn13Q-5hioQbU"; // 🔹 Replace with your key
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + GEMINI_API_KEY;
+
+document.getElementById("askAI").addEventListener("click", async function () {
+  const query = document.getElementById("searchInput").value.trim();
+  const aiResponseDiv = document.getElementById("aiResponse");
+
+  if (!query) {
+    alert("Enter something in the search box first!");
+    return;
+  }
+
+  aiResponseDiv.classList.remove("hidden");
+  aiResponseDiv.textContent = "🤖 Thinking...";
+
+  try {
+    const prompt = `Here is the extracted text from a PDF:\n\n${extractedText}\n\nUser Question: ${query}`;
+    
+    const response = await fetch(GEMINI_API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }]
+      })
+    });
+
+    const data = await response.json();
+    const aiText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "⚠ No response from AI.";
+    aiResponseDiv.textContent = aiText;
+  } catch (err) {
+    console.error(err);
+    aiResponseDiv.textContent = "❌ Error connecting to AI.";
+  }
+});
+
 let extractedText = "";
 
 document.getElementById("pdfUpload").addEventListener("change", function () {
