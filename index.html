@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StudyVibe — PDF Reader</title>
+  <title>StudyVibe — PDF Text Extractor</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
     <h1>📚 StudyVibe</h1>
-    <p class="tagline">Read & Study PDFs Instantly</p>
+    <p class="tagline">Read & Extract Text from PDFs</p>
 
     <label class="upload-btn">
       <input type="file" id="pdfUpload" accept="application/pdf" />
@@ -18,9 +18,15 @@
 
     <div id="loader" class="loader hidden"></div>
     <div id="output" class="output-box">No PDF loaded yet.</div>
+
     <iframe id="pdfViewer" class="pdf-viewer hidden"></iframe>
+
+    <h2 class="section-title">📄 Extracted Text</h2>
+    <pre id="pdfText" class="text-output">No text extracted yet.</pre>
   </div>
 
+  <!-- PDF.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
